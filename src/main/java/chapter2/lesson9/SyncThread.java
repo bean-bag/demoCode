@@ -34,14 +34,13 @@ public class SyncThread extends Thread {
 
     }
 
-    public /*synchronized*/ void sellTicket() {
-        long now = System.nanoTime();
-        LOG.info(name + "买票了:"+now);
+    public void sellTicket() {
         
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        synchronized (LOG) {
+            for (int i = 1; i < 3; i++) {
+                LOG.info(name + "完成第" + i + "件事！");
+                Thread.yield();
+            }
         }
     }
 }
