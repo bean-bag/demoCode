@@ -29,7 +29,7 @@ public class CloseHelper {
     }
 
     /**
-     * 顺序关闭一个或者多个Closeable对象
+     * 关闭一个或者多个Closeable对象
      * <br/>
      *
      * @author junwen.bao
@@ -45,7 +45,7 @@ public class CloseHelper {
     }
     
     /**
-     * 安静地 顺序关闭一个或者多个Closeable对象
+     * 安静地 关闭一个或者多个Closeable对象
      * <br/>
      *
      * @author junwen.bao
