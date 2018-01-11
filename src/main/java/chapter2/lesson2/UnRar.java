@@ -18,11 +18,11 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import org.apache.tools.ant.Project;
-import org.apache.tools.ant.taskdefs.Expand;
+//import org.apache.tools.ant.Project;
+//import org.apache.tools.ant.taskdefs.Expand;
 
-import com.github.junrar.Archive;
-import com.github.junrar.rarfile.FileHeader;
+//import com.github.junrar.Archive;
+//import com.github.junrar.rarfile.FileHeader;
 
 /**
  * Description: <br/>
@@ -101,7 +101,7 @@ public class UnRar {
 
     }
 
-    static void unzip2(File sourceZip) throws Exception {
+    static void unzip2(File sourceZip) throws Exception {/*
         try {
             Project p = new Project();
             Expand e = new Expand();
@@ -115,18 +115,18 @@ public class UnRar {
                 dest.mkdirs();
             }
             e.setDest(dest);
-            /*
-             * ant下的zip工具默认压缩编码为UTF-8编码， 而winRAR软件压缩是用的windows默认的GBK或者GB2312编码
-             * 所以解压缩时要制定编码格式
-             */
+            
+            // ant下的zip工具默认压缩编码为UTF-8编码， 而winRAR软件压缩是用的windows默认的GBK或者GB2312编码
+            // 所以解压缩时要制定编码格式
+             
             e.setEncoding("gbk");
             e.execute();
         } catch (Exception e) {
             throw e;
         }
-    }
+    */}
 
-    static void unrar(File sourceRar) throws Exception {
+    static void unrar(File sourceRar) throws Exception {/*
         Archive a = null;
         FileOutputStream fos = null;
         try {
@@ -163,7 +163,7 @@ public class UnRar {
 //                        dir.mkdirs();
 //                    }
                     // 3解压缩文件
-                    fos = new FileOutputStream(/*new File(destFileName)*/dir);
+                    fos = new FileOutputStream(new File(destFileName)dir);
                     a.extractFile(fh, fos);
                     fos.close();
                     fos = null;
@@ -177,5 +177,5 @@ public class UnRar {
         } finally {
             closeQuietly(fos, a);
         }
-    }
+    */}
 }
