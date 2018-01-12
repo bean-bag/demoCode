@@ -13,7 +13,8 @@ import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.w3c.dom.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -28,7 +29,8 @@ import org.w3c.dom.NodeList;
 
 
 public class DomXMLReader {
-
+    private final static Logger LOG = LoggerFactory.getLogger(DomXMLReader.class);
+    
     public static void main(String arge[]) {
         long lasting = System.currentTimeMillis();
         try {
@@ -47,18 +49,18 @@ public class DomXMLReader {
                 
                 Node elementNode = childList.item(i);
                 String eValue = elementNode.getNodeValue();
-                System.out.println("标签值："+eValue);
+                LOG.info("标签值：{}",eValue);
                 Node textNode = elementNode.getFirstChild(); //文本算一个隐藏的节点        
                 
                 String no = textNode.getNodeValue();
                 String id = ((Element)elementNode).getAttribute("id");//获取属性
-                System.out.println("车牌ID:" + id);
-                System.out.print("车牌号码:" + no);
-                System.out.println(" 车主地址:" + doc.getElementsByTagName("ADDR").item(i).getFirstChild().getNodeValue());
+                LOG.info("车牌ID:{}", id);
+                LOG.info("车牌号码:{}" , no);
+                LOG.info("车主地址:{}",doc.getElementsByTagName("ADDR").item(i).getFirstChild().getNodeValue());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("运行时间：" + (System.currentTimeMillis() - lasting) + " 毫秒");
+        LOG.info("运行时间：{}" , (System.currentTimeMillis() - lasting) + " 毫秒");
     }
 }

@@ -39,25 +39,24 @@ public class XmlReader {
 
     public static void main(String[] args) {
 
-        
         File f = new File("D:\\git\\demoCode\\employee.xml");
         try {
-            
+
             Document doc = builder(f);
             // 输出文档节点对象
             print(doc);
             // doc
 
-            //获取文档的第一个子节点
+            // 获取文档的第一个子节点
             Node fNode = doc.getFirstChild();
             print(fNode);
             // employees
-            
+
             Node fcNode = fNode.getFirstChild();
             print(fcNode);
             // 换行
-            
-            //获取下一个兄弟节点
+
+            // 获取下一个兄弟节点
             Node nextNode = fcNode.getNextSibling();
             print(nextNode);
             // employee
@@ -69,26 +68,23 @@ public class XmlReader {
             Node xxNode = fcNode.getNextSibling().getFirstChild().getNextSibling().getFirstChild().getNextSibling();
             LOG.info("xxNode:[{}]", xxNode);
             LOG.info("nextNode:[{}]", xxNode.getParentNode().getChildNodes().item(2));
-            
-            //获取父级节点
-            Node parentNode = xxNode.getParentNode();
-            
-            //获取所有子节点
-           NodeList list =  xxNode.getChildNodes();
-            
 
+            // 获取父级节点
+            Node parentNode = xxNode.getParentNode();
+            print(parentNode);
+            
+            // 获取所有子节点
+            NodeList list = xxNode.getChildNodes();
+            LOG.info("子基点个数：{}",list.getLength());
+            
             print(fcNode.getNextSibling().getFirstChild().getNextSibling().getFirstChild());
 
         } catch (ParserConfigurationException e) {
-
-            // Auto-generated catch block
-            e.printStackTrace();
+            LOG.info("xml解析",e);
         } catch (SAXException e) {
-            // Auto-generated catch block
-            e.printStackTrace();
+            LOG.info("xml解析",e);
         } catch (IOException e) {
-            // Auto-generated catch block
-            e.printStackTrace();
+            LOG.info("xml解析",e);
         }
     }
 
@@ -113,7 +109,7 @@ public class XmlReader {
     public static Document builder(String filePath) throws ParserConfigurationException, SAXException, IOException {
         // 构建一个文件对象
         File file = new File(filePath);
-        
+
         return builder(file);
     }
 
