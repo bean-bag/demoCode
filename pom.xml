@@ -6,20 +6,18 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
-		<!-- <dependency>
-			<groupId>org.apache.ant</groupId>
-			<artifactId>ant</artifactId>
-			<version>1.10.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.github.junrar</groupId>
-			<artifactId>junrar</artifactId>
-			<version>0.7</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.apache.ant</groupId> <artifactId>ant</artifactId> 
+			<version>1.10.1</version> </dependency> <dependency> <groupId>com.github.junrar</groupId> 
+			<artifactId>junrar</artifactId> <version>0.7</version> </dependency> -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
