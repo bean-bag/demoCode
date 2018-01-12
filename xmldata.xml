@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<cars>
+	<VALUE>
+		<NO id="111">鄂A88888</NO>
+		<ADDR>sff</ADDR>
+	</VALUE>
+	<!-- 
+	<VALUE>
+		<NO>鄂A66666</NO>
+		<ADDR>sff</ADDR>
+	</VALUE>-->
+	<VALUE>
+		<NO>鄂A99999</NO>
+		<ADDR>sff</ADDR>
+	</VALUE>
+</cars>

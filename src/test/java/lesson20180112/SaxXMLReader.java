@@ -30,13 +30,25 @@ public class SaxXMLReader {
     public static void main(String arge[]) {
         long lasting = System.currentTimeMillis();
         try {
-            File f = new File("data_10k.xml");
+            
+            //1、构造文件对象
+            File f = new File("xmldata.xml");
+            
+            //2、构造解析对象
             SAXReader reader = new SAXReader();
+            //reader.setValidation(true);
+            
+            //3、把文件对象，解析为文档对象
             Document doc = reader.read(f);
+            
+            //4、获取根节点
             Element root = doc.getRootElement();
+            
+            //5、迭代读取所有子节点
             Element foo;
             for (Iterator<?> i = root.elementIterator("VALUE"); i.hasNext();) {
                 foo = (Element) i.next();
+                                                  //获取文本内容
                 System.out.print("车牌号码:" + foo.elementText("NO"));
                 System.out.println(" 车主地址:" + foo.elementText("ADDR"));
             }

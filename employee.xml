@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<employees company = "01科技">sss
+	<employee id="zhangsan" >
+		<name>张三<ss>ss</ss>tttttt</name>
+		<sex>m</sex>
+		<age>30</age>
+		<salary value="100"/>
+	</employee>
+	<!-- <employee>
+		<name>张三</name>
+		<sex>m</sex>
+		<age>30</age>	
+	</employee> -->
+	<employee>
+		<name>张三</name>
+		<sex>m</sex>
+		<age>30</age>	
+	</employee>
+</employees>

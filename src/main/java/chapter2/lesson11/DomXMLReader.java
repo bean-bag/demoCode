@@ -6,7 +6,7 @@
  * Copyright (c) 2018, bluemobi All Rights Reserved.
  */
 
-package lesson20180112;
+package chapter2.lesson11;
 
 import java.io.File;
 
@@ -14,6 +14,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
@@ -31,18 +33,27 @@ public class DomXMLReader {
         long lasting = System.currentTimeMillis();
         try {
             File f = new File("xmldata.xml");
+            
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            
-            //开启文件格式校验
-            factory.setValidating(true);
-            
+           
             DocumentBuilder builder = factory.newDocumentBuilder();
             
-            Document doc = builder.parse(f);
+            org.w3c.dom.Document doc = builder.parse(f);
             
-            NodeList nl = doc.getElementsByTagName("VALUE");
+            org.w3c.dom.NodeList nl = doc.getElementsByTagName("VALUE");
+           
             for (int i = 0; i < nl.getLength(); i++) {
-                System.out.print("车牌号码:" + doc.getElementsByTagName("NO").item(i).getFirstChild().getNodeValue());
+                NodeList childList = doc.getElementsByTagName("NO");
+                
+                Node elementNode = childList.item(i);
+                String eValue = elementNode.getNodeValue();
+                System.out.println("标签值："+eValue);
+                Node textNode = elementNode.getFirstChild(); //文本算一个隐藏的节点        
+                
+                String no = textNode.getNodeValue();
+                String id = ((Element)elementNode).getAttribute("id");//获取属性
+                System.out.println("车牌ID:" + id);
+                System.out.print("车牌号码:" + no);
                 System.out.println(" 车主地址:" + doc.getElementsByTagName("ADDR").item(i).getFirstChild().getNodeValue());
             }
         } catch (Exception e) {
